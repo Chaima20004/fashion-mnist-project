@@ -9,7 +9,11 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy all files
-COPY . .
+COPY requirements.txt .
+COPY srcapp.py ./src/
+COPY srcmodel.py ./src/
+COPY srctrain.py ./src/
+COPY .github/workflows/workflows.yaml .github/workflows/
 
 # Default command (training)
 CMD ["python", "src/train.py"]
